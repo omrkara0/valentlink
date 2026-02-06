@@ -8,9 +8,6 @@ const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfa
 export const metadata: Metadata = {
   title: "ValentLink | Create a Romantic Digital Gift",
   description: "The perfect digital gift for Valentine's Day. Personalized, private, and forever.",
-  icons: {
-    icon: '/logo.jpg',
-  },
 };
 
 export default function RootLayout({
