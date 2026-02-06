@@ -130,20 +130,37 @@ export default function Home() {
         }}>
           {t.subtitle}
         </p>
-        <Link href="/contact" className="fade-in delay-2" style={{
-          padding: '1.2rem 3rem',
-          backgroundColor: 'var(--primary)',
-          color: 'white',
-          textDecoration: 'none',
-          borderRadius: '50px',
-          fontSize: '1.2rem',
-          fontWeight: 'bold',
-          boxShadow: '0 10px 25px rgba(225, 29, 72, 0.4)',
-          transition: 'transform 0.2s',
-          display: 'inline-block'
-        }}>
-          {t.cta}
-        </Link>
+        <div className="fade-in delay-2" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+          <Link href="/contact" style={{
+            padding: '1.2rem 3rem',
+            backgroundColor: 'var(--primary)',
+            color: 'white',
+            textDecoration: 'none',
+            borderRadius: '50px',
+            fontSize: '1.2rem',
+            fontWeight: 'bold',
+            boxShadow: '0 10px 25px rgba(225, 29, 72, 0.4)',
+            transition: 'transform 0.2s',
+            display: 'inline-block'
+          }}>
+            {t.cta}
+          </Link>
+          <Link href="/love/demo" target="_blank" style={{
+            padding: '1.2rem 2rem',
+            backgroundColor: 'white',
+            color: 'var(--primary)',
+            textDecoration: 'none',
+            borderRadius: '50px',
+            fontSize: '1.2rem',
+            fontWeight: 'bold',
+            border: '2px solid var(--primary)',
+            boxShadow: '0 4px 15px rgba(0,0,0,0.05)',
+            transition: 'transform 0.2s',
+            display: 'inline-block'
+          }}>
+            {lang === 'tr' ? 'Canlı Demo 👁️' : 'Live Demo 👁️'}
+          </Link>
+        </div>
         <p style={{ marginTop: '1rem', fontSize: '0.9rem', color: '#888' }}>{lang === 'tr' ? 'Kodlama gerektirmez • Anında link' : 'No coding required • Instant link'}</p>
       </section>
 

@@ -15,7 +15,7 @@ export default function AdminCreatePage() {
         message: '',
         theme: 'rose',
         language: 'tr',
-        music: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
+        music: '/music/sarki1.mp3',
         slug: '',
         password: '',
     });
@@ -331,9 +331,7 @@ export default function AdminCreatePage() {
                                 }}
                                 style={{ width: '100%', padding: '1rem', borderRadius: '12px', border: '1px solid #e2e8f0', backgroundColor: 'white', fontSize: '1rem', outline: 'none', transition: 'border 0.2s', cursor: 'pointer' }}
                             >
-                                <option value="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">Romantic Start (Varsayılan)</option>
-                                <option value="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3">Piano Dreams</option>
-                                <option value="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3">Upbeat Love</option>
+                                <option value="/music/sarki1.mp3">Romantik Müzik (Varsayılan)</option>
                                 {formData.package !== 'basic' ? (
                                     <option value="custom">Özel (Dosya Yükle) ✨</option>
                                 ) : (

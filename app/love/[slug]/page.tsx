@@ -40,6 +40,27 @@ export default function LovePage({ params }: { params: Promise<{ slug: string }>
 
     // Data Fetching Restored
     useEffect(() => {
+        // DEMO MODE
+        if (slug === 'demo') {
+            setData({
+                slug: 'demo',
+                buyerName: 'Romeo',
+                recipientName: 'Juliet',
+                message: 'Seninle tanıştığım gün, hayatımın en güzel bölümü başladı. Her bakışın kalbimde yeni bir çiçek açtırıyor. İyi ki varsın, iyi ki benimsin! Birlikte nice güzel anılara... ❤️',
+                photos: [
+                    'https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=800&q=80',
+                    'https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=800&q=80',
+                    'https://images.unsplash.com/photo-1621091211034-53136cc1eb32?w=800&q=80',
+                    'https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=800&q=80'
+                ],
+                package: 'premium',
+                language: 'tr',
+                music: '/music/sarki1.mp3'
+            });
+            setLoading(false);
+            return;
+        }
+
         fetch(`/api/gift/${slug}`)
             .then(res => {
                 if (!res.ok) throw new Error('Not found');
