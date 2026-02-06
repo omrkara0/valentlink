@@ -16,6 +16,7 @@ export async function POST(request: Request) {
         const theme = formData.get('theme') as string;
         const language = (formData.get('language') as 'tr' | 'en') || 'en';
         let music = formData.get('music') as string;
+        const password = formData.get('password') as string; // Optional password
 
         // Generate or validate slug
         let slug = formData.get('slug') as string;
@@ -67,6 +68,7 @@ export async function POST(request: Request) {
             theme,
             language,
             music: music || '', // Ensure string
+            password: password || '',
             photos,
             createdAt: new Date().toISOString()
         };

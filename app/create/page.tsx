@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 
 export default function AdminCreatePage() {
@@ -17,12 +17,49 @@ export default function AdminCreatePage() {
         language: 'tr',
         music: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
         slug: '',
+        password: '',
     });
     const [files, setFiles] = useState<FileList | null>(null);
     const [musicFile, setMusicFile] = useState<File | null>(null);
 
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [passwordInput, setPasswordInput] = useState('');
+
+    const [giftList, setGiftList] = useState<any[]>([]);
+
+    useEffect(() => {
+        if (isAuthenticated) {
+            fetchGifts();
+        }
+    }, [isAuthenticated]);
+
+    const fetchGifts = async () => {
+        try {
+            const res = await fetch('/api/admin');
+            if (res.ok) {
+                const data = await res.json();
+                setGiftList(data);
+            }
+        } catch (error) {
+            console.error("Failed to fetch gifts", error);
+        }
+    };
+
+    const handleDelete = async (slug: string) => {
+        if (!confirm('Bu linki silmek istediğinize emin misiniz?')) return;
+
+        try {
+            const res = await fetch(`/api/admin?slug=${slug}`, { method: 'DELETE' });
+            if (res.ok) {
+                alert('Silindi!');
+                fetchGifts(); // Refresh
+            } else {
+                alert('Silinemedi.');
+            }
+        } catch (error) {
+            console.error("Delete failed", error);
+        }
+    };
 
     const handleLogin = (e: React.FormEvent) => {
         e.preventDefault();
@@ -34,11 +71,26 @@ export default function AdminCreatePage() {
     };
 
     const updateField = (field: string, value: any) => {
-        setFormData({ ...formData, [field]: value });
+        setFormData(prev => ({ ...prev, [field]: value }));
     };
 
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.files && e.target.files.length > 0) {
+            const count = e.target.files.length;
+            const pkg = formData.package;
+
+            // Enforce Limits
+            if (pkg === 'basic' && count > 3) {
+                alert('Basic pakette en fazla 3 fotoğraf yükleyebilirsiniz. 📸');
+                e.target.value = ''; // Reset input
+                return;
+            }
+            if (pkg === 'premium' && count > 10) {
+                alert('Premium pakette en fazla 10 fotoğraf yükleyebilirsiniz. 📸');
+                e.target.value = '';
+                return;
+            }
+
             setFiles(e.target.files);
         }
     };
@@ -56,6 +108,7 @@ export default function AdminCreatePage() {
         data.append('language', formData.language);
         data.append('music', formData.music);
         if (formData.slug) data.append('slug', formData.slug);
+        if (formData.package === 'deluxe' && formData.password) data.append('password', formData.password);
 
         if (musicFile && formData.music === 'custom') {
             data.append('musicFile', musicFile);
@@ -186,7 +239,13 @@ export default function AdminCreatePage() {
                             <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: '600', color: '#666', marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Paket Seçimi</label>
                             <select
                                 value={formData.package}
-                                onChange={(e) => updateField('package', e.target.value)}
+                                onChange={(e) => {
+                                    const val = e.target.value;
+                                    updateField('package', val);
+                                    if (val !== 'deluxe') {
+                                        updateField('password', ''); // Clear password if rarely switching from Deluxe
+                                    }
+                                }}
                                 style={{ width: '100%', padding: '1rem', borderRadius: '12px', border: '1px solid #e2e8f0', backgroundColor: 'white', fontSize: '1rem', outline: 'none', transition: 'border 0.2s', cursor: 'pointer' }}
                             >
                                 <option value="basic">Basic Paket</option>
@@ -245,6 +304,21 @@ export default function AdminCreatePage() {
                             </div>
                         </div>
 
+
+                        {formData.package === 'deluxe' && (
+                            <div className="form-group">
+                                <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: '600', color: '#e11d48', marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>🔒 Sayfa Şifresi (Deluxe)</label>
+                                <input
+                                    type="text"
+                                    value={formData.password}
+                                    onChange={(e) => updateField('password', e.target.value)}
+                                    placeholder="Örn: 14022026 veya SeniSeviyorum"
+                                    style={{ width: '100%', padding: '1rem', borderRadius: '12px', border: '2px solid #e11d48', backgroundColor: '#fff0f3', fontSize: '1rem', outline: 'none' }}
+                                />
+                                <p style={{ fontSize: '0.75rem', color: '#666', marginTop: '0.2rem' }}>Ziyaretçiler sayfayı görmek için bu şifreyi girmelidir.</p>
+                            </div>
+                        )}
+
                         <div className="form-group">
                             <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: '600', color: '#666', marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Arka Plan Müziği</label>
                             <select
@@ -260,7 +334,11 @@ export default function AdminCreatePage() {
                                 <option value="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">Romantic Start (Varsayılan)</option>
                                 <option value="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3">Piano Dreams</option>
                                 <option value="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3">Upbeat Love</option>
-                                <option value="custom">Özel (Dosya Yükle)</option>
+                                {formData.package !== 'basic' ? (
+                                    <option value="custom">Özel (Dosya Yükle) ✨</option>
+                                ) : (
+                                    <option disabled>Özel Müzik (Premium/Deluxe) 🔒</option>
+                                )}
                             </select>
                             {formData.music === 'custom' && (
                                 <div style={{ marginTop: '0.5rem' }}>
@@ -345,7 +423,7 @@ export default function AdminCreatePage() {
                                 <input
                                     type="file"
                                     multiple
-                                    accept="image/*"
+                                    accept={formData.package === 'deluxe' ? "image/*, video/*" : "image/*"}
                                     ref={fileInputRef}
                                     onChange={handleFileChange}
                                     style={{ display: 'none' }}
@@ -391,6 +469,61 @@ export default function AdminCreatePage() {
                 </div>
             </form>
 
+            {/* Admin Dashboard: List of Created Links */}
+            <div style={{ marginTop: '4rem', paddingBottom: '4rem' }}>
+                <h2 style={{ textAlign: 'center', color: '#e11d48', marginBottom: '2rem', fontFamily: 'var(--font-heading)' }}>
+                    Oluşturulan Linkler ({giftList.length})
+                </h2>
+
+                <div style={{ display: 'grid', gap: '1rem' }}>
+                    {giftList.map((gift) => (
+                        <div key={gift.id} style={{
+                            background: 'white',
+                            padding: '1.5rem',
+                            borderRadius: '15px',
+                            boxShadow: '0 4px 15px rgba(0,0,0,0.05)',
+                            display: 'flex',
+                            justifyContent: 'space-between',
+                            alignItems: 'center',
+                            flexWrap: 'wrap',
+                            gap: '1rem'
+                        }}>
+                            <div>
+                                <div style={{ fontWeight: 'bold', fontSize: '1.1rem', color: '#333' }}>
+                                    {gift.buyerName} ➡️ {gift.recipientName}
+                                </div>
+                                <div style={{ color: '#666', fontSize: '0.9rem', marginTop: '0.2rem' }}>
+                                    Slug: <Link href={`/love/${gift.slug}`} target="_blank" style={{ color: '#e11d48', textDecoration: 'underline' }}>{gift.slug}</Link>
+                                </div>
+                                <div style={{ color: '#999', fontSize: '0.8rem', marginTop: '0.2rem' }}>
+                                    {gift.createdAt ? new Date(gift.createdAt).toLocaleDateString('tr-TR') : 'Tarih Yok'}
+                                </div>
+                            </div>
+
+                            <button
+                                type="button"
+                                onClick={() => handleDelete(gift.slug)}
+                                style={{
+                                    padding: '0.6rem 1.2rem',
+                                    borderRadius: '8px',
+                                    border: 'none',
+                                    background: '#ef4444',
+                                    color: 'white',
+                                    cursor: 'pointer',
+                                    fontWeight: '600'
+                                }}
+                            >
+                                Sil 🗑️
+                            </button>
+                        </div>
+                    ))}
+
+                    {giftList.length === 0 && (
+                        <p style={{ textAlign: 'center', color: '#999' }}>Henüz hiç link oluşturulmamış.</p>
+                    )}
+                </div>
+            </div>
+
             <style jsx>{`
                 @media (max-width: 800px) {
                     form {
@@ -402,6 +535,6 @@ export default function AdminCreatePage() {
                     }
                 }
             `}</style>
-        </main>
+        </main >
     );
 }

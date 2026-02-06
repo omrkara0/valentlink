@@ -24,7 +24,7 @@ export default function ContactPage() {
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                     <a
-                        href="https://wa.me/905555555555" // Placeholder number
+                        href="https://wa.me/905336776259"
                         target="_blank"
                         rel="noopener noreferrer"
                         style={{
