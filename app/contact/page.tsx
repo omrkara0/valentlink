@@ -11,6 +11,9 @@ export default function ContactPage() {
             </div>
 
             <div className="fade-in" style={{ backgroundColor: 'white', padding: '3rem', borderRadius: '24px', boxShadow: '0 20px 40px rgba(225, 29, 72, 0.15)', maxWidth: '600px', width: '90%' }}>
+                <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem' }}>
+                    <img src="/logo.jpg" alt="ValentLink" style={{ height: '70px', width: 'auto' }} />
+                </div>
                 <h1 style={{ fontSize: '2.5rem', marginBottom: '1rem', color: 'var(--primary)', fontFamily: 'var(--font-heading)' }}>
                     Hediye Siparişi Oluştur 💌
                 </h1>

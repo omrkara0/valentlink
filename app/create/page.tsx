@@ -156,7 +156,8 @@ export default function AdminCreatePage() {
     return (
         <main style={{ minHeight: '100vh', padding: '2rem 1rem', display: 'flex', flexDirection: 'column', alignItems: 'center', background: '#fafafa' }}>
             <header style={{ marginBottom: '3rem', textAlign: 'center' }}>
-                <Link href="/" style={{ fontSize: '2rem', fontWeight: 'bold', color: 'var(--primary)', textDecoration: 'none', fontFamily: 'var(--font-heading)' }}>
+                <Link href="/" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', fontSize: '2rem', fontWeight: 'bold', color: 'var(--primary)', textDecoration: 'none', fontFamily: 'var(--font-heading)' }}>
+                    <img src="/logo.jpg" alt="Logo" style={{ height: '50px', width: 'auto' }} />
                     ValentLink
                 </Link>
                 <p style={{ color: '#888', marginTop: '0.5rem' }}>Yönetici Paneli</p>

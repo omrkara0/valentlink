@@ -78,7 +78,10 @@ export default function Home() {
         margin: '0 auto',
         backdropFilter: 'blur(5px)'
       }}>
-        <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: 'var(--primary)' }}>ValentLink</div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '1.5rem', fontWeight: 'bold', color: 'var(--primary)' }}>
+          <img src="/logo.jpg" alt="Logo" style={{ height: '40px', width: 'auto' }} />
+          ValentLink
+        </div>
 
         <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
           <button onClick={() => setLang(lang === 'tr' ? 'en' : 'tr')} style={{
