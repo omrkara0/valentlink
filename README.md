@@ -1,36 +1,104 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 💝 ValentLink
 
-## Getting Started
+<div align="center">
 
-First, run the development server:
+**Sevgililer Günü için Dijital Aşk Mektubu Platformu**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Fotoğraflarınız, müziğiniz ve hikayenizle kişiselleştirilmiş, sonsuza kadar sürecek romantik dijital hediyeler oluşturun.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+[Demo](https://valentlink.vercel.app) • [Özellikler](#-özellikler) 
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+</div>
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 📖 Hakkında
 
-To learn more about Next.js, take a look at the following resources:
+ValentLink, sevdikleriniz için özel ve unutulmaz dijital hediyeler oluşturmanızı sağlayan bir Next.js web uygulamasıdır. Kullanıcılar fotoğraf galerileri, özel müzik ve kişiselleştirilmiş temalar ile benzersiz bir deneyim yaratabiliyor.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 🎯 Proje Amacı
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- ❤️ Sevgililer Günü için anlamlı ve kalıcı hediyeler sunmak
+- 🎨 Kişiselleştirilebilir romantik dijital deneyimler yaratmak
+- 🔗 Kolay paylaşılabilir özel linkler (valent.link/isim) oluşturmak
+- 💌 Modern web teknolojileri ile duygusal bağ kurmak
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## ✨ Özellikler
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 📦 Paket Sistemleri
+
+#### **Basic Paket** (100₺ / $10)
+- 🖼️ 3 fotoğraf limiti
+- 🎵 Hazır müzik listesi
+- 🎨 Standart tema
+
+#### **Premium Paket** (250₺ / $25)
+- 🖼️ 10 fotoğraf limiti
+- 🎵 Kendi şarkınızı yükleyin (MP3)
+- 🎨 Standart tema
+
+#### **Deluxe Paket** (500₺ / $50)
+- 🖼️ Sınırsız fotoğraf
+- 🎥 Video desteği
+- 🎵 Özel müzik yükleme
+- 🔒 Şifreli giriş özelliği
+
+### 🎨 Teknik Özellikler
+
+- ⚡ **Modern Animasyonlar**: Kalp animasyonları, fade-in efektleri, smooth transitions
+- 🎵 **Müzik Entegrasyonu**: React Player ile müzik/video oynatma
+- 🎆 **Confetti Efektleri**: Canvas-confetti ile kutlama animasyonları
+- 🌐 **Çok Dilli Destek**: Türkçe ve İngilizce arayüz
+- 📱 **Responsive Tasarım**: Mobil ve masaüstü uyumlu
+- 🎭 **Özel Fontlar**: Playfair Display, Dancing Script, Inter
+
+---
+
+## 🛠️ Teknoloji Stack
+
+- **Framework**: [Next.js 16.1.6](https://nextjs.org/) (App Router)
+- **Frontend**: React 19.2.3, TypeScript
+- **Veritabanı**: Prisma ORM
+- **Authentication**: Firebase 12.9.0
+- **Animasyonlar**: 
+  - Canvas Confetti
+  - Web Animations API
+  - CSS Animations
+- **Video/Müzik**: React Player 3.4.0
+- **Styling**: CSS Modules + Global CSS
+- **Geliştirme**: ESLint, dotenv-cli
+
+---
+
+
+## 🔐 Güvenlik
+
+- 🔒 Firebase Authentication ile güvenli kullanıcı yönetimi
+- 🛡️ Prisma ORM ile SQL injection koruması
+- 🔑 Deluxe pakette şifreli giriş özelliği
+- 🌐 HTTPS kullanımı önerilir (production ortamında)
+
+---
+
+
+## 📝 Lisans
+
+Bu proje özel bir projedir. Kullanım için lütfen iletişime geçin.
+
+---
+
+## 📧 İletişim
+
+**Ömer Kara** - [@omrkara0](https://github.com/omrkara0)
+
+Proje Linki: [https://github.com/omrkara0/valentlink](https://github.com/omrkara0/valentlink)
+
+
+
+<div align="center">
+
+**Aşıklar için ❤️ ile yapıldı**
+
+</div>
