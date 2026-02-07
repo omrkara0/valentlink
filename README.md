@@ -1,36 +1,171 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 💝 ValentLink
 
-## Getting Started
+<div align="center">
 
-First, run the development server:
+**Sevgililer Günü için Dijital Aşk Mektubu Platformu**
 
+Fotoğraflarınız, müziğiniz ve hikayenizle kişiselleştirilmiş, sonsuza kadar sürecek romantik dijital hediyeler oluşturun.
+
+[Demo](https://valentlink.vercel.app) • [Özellikler](#-özellikler) • [Kurulum](#-kurulum)
+
+</div>
+
+---
+
+## 📖 Hakkında
+
+ValentLink, sevdikleriniz için özel ve unutulmaz dijital hediyeler oluşturmanızı sağlayan bir Next.js web uygulamasıdır. Kullanıcılar fotoğraf galerileri, özel müzik ve kişiselleştirilmiş temalar ile benzersiz bir deneyim yaratabiliyor.
+
+### 🎯 Proje Amacı
+
+- ❤️ Sevgililer Günü için anlamlı ve kalıcı hediyeler sunmak
+- 🎨 Kişiselleştirilebilir romantik dijital deneyimler yaratmak
+- 🔗 Kolay paylaşılabilir özel linkler (valent.link/isim) oluşturmak
+- 💌 Modern web teknolojileri ile duygusal bağ kurmak
+
+---
+
+## ✨ Özellikler
+
+### 📦 Paket Sistemleri
+
+#### **Basic Paket** (100₺ / $10)
+- 🖼️ 3 fotoğraf limiti
+- 🎵 Hazır müzik listesi
+- 🎨 Standart tema
+
+#### **Premium Paket** (250₺ / $25)
+- 🖼️ 10 fotoğraf limiti
+- 🎵 Kendi şarkınızı yükleyin (MP3)
+- 🎨 Standart tema
+
+#### **Deluxe Paket** (500₺ / $50)
+- 🖼️ Sınırsız fotoğraf
+- 🎥 Video desteği
+- 🎵 Özel müzik yükleme
+- 🔒 Şifreli giriş özelliği
+
+### 🎨 Teknik Özellikler
+
+- ⚡ **Modern Animasyonlar**: Kalp animasyonları, fade-in efektleri, smooth transitions
+- 🎵 **Müzik Entegrasyonu**: React Player ile müzik/video oynatma
+- 🎆 **Confetti Efektleri**: Canvas-confetti ile kutlama animasyonları
+- 🌐 **Çok Dilli Destek**: Türkçe ve İngilizce arayüz
+- 📱 **Responsive Tasarım**: Mobil ve masaüstü uyumlu
+- 🎭 **Özel Fontlar**: Playfair Display, Dancing Script, Inter
+
+---
+
+## 🛠️ Teknoloji Stack
+
+- **Framework**: [Next.js 16.1.6](https://nextjs.org/) (App Router)
+- **Frontend**: React 19.2.3, TypeScript
+- **Veritabanı**: Prisma ORM
+- **Authentication**: Firebase 12.9.0
+- **Animasyonlar**: 
+  - Canvas Confetti
+  - Web Animations API
+  - CSS Animations
+- **Video/Müzik**: React Player 3.4.0
+- **Styling**: CSS Modules + Global CSS
+- **Geliştirme**: ESLint, dotenv-cli
+
+---
+
+## 🚀 Kurulum
+
+### Gereksinimler
+
+- Node.js 20 veya üzeri
+- npm veya yarn
+- Prisma destekli bir veritabanı (PostgreSQL, MySQL, vs.)
+- Firebase projesi (Authentication için)
+
+### Adımlar
+
+1. **Repoyu klonlayın**
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/omrkara0/valentlink.git
+cd valentlink
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. **Bağımlılıkları yükleyin**
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. **Ortam değişkenlerini ayarlayın**
+```bash
+# .env.local dosyası oluşturun ve aşağıdaki değişkenleri ekleyin:
+DATABASE_URL="your_database_url"
+NEXT_PUBLIC_FIREBASE_API_KEY="your_firebase_api_key"
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN="your_firebase_auth_domain"
+NEXT_PUBLIC_FIREBASE_PROJECT_ID="your_firebase_project_id"
+# ... diğer Firebase ayarları
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. **Veritabanını hazırlayın**
+```bash
+npx prisma generate
+npx prisma db push
+```
 
-## Learn More
+5. **Geliştirme sunucusunu başlatın**
+```bash
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+Uygulama [http://localhost:3000](http://localhost:3000) adresinde çalışacaktır.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🔐 Güvenlik
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- 🔒 Firebase Authentication ile güvenli kullanıcı yönetimi
+- 🛡️ Prisma ORM ile SQL injection koruması
+- 🔑 Deluxe pakette şifreli giriş özelliği
+- 🌐 HTTPS kullanımı önerilir (production ortamında)
+
+---
+
+## 📱 Mobil Uyumluluk
+
+Uygulama tam responsive tasarıma sahiptir:
+- 📱 Mobil cihazlar (360px+)
+- 📱 Tablet cihazlar (768px+)
+- 💻 Masaüstü (1024px+)
+
+---
+
+## 🤝 Katkıda Bulunma
+
+1. Fork yapın
+2. Feature branch oluşturun (`git checkout -b feature/amazing-feature`)
+3. Değişikliklerinizi commit edin (`git commit -m 'feat: Add amazing feature'`)
+4. Branch'inizi push edin (`git push origin feature/amazing-feature`)
+5. Pull Request açın
+
+---
+
+## 📝 Lisans
+
+Bu proje özel bir projedir. Kullanım için lütfen iletişime geçin.
+
+---
+
+## 📧 İletişim
+
+**Ömer Kara** - [@omrkara0](https://github.com/omrkara0)
+
+Proje Linki: [https://github.com/omrkara0/valentlink](https://github.com/omrkara0/valentlink)
+
+
+
+<div align="center">
+
+**Aşıklar için ❤️ ile yapıldı**
+
+</div>
