@@ -72,55 +72,6 @@ ValentLink, sevdikleriniz için özel ve unutulmaz dijital hediyeler oluşturman
 
 ---
 
-## 🚀 Kurulum
-
-### Gereksinimler
-
-- Node.js 20 veya üzeri
-- npm veya yarn
-- Prisma destekli bir veritabanı (PostgreSQL, MySQL, vs.)
-- Firebase projesi (Authentication için)
-
-### Adımlar
-
-1. **Repoyu klonlayın**
-```bash
-git clone https://github.com/omrkara0/valentlink.git
-cd valentlink
-```
-
-2. **Bağımlılıkları yükleyin**
-```bash
-npm install
-```
-
-3. **Ortam değişkenlerini ayarlayın**
-```bash
-# .env.local dosyası oluşturun ve aşağıdaki değişkenleri ekleyin:
-DATABASE_URL="your_database_url"
-NEXT_PUBLIC_FIREBASE_API_KEY="your_firebase_api_key"
-NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN="your_firebase_auth_domain"
-NEXT_PUBLIC_FIREBASE_PROJECT_ID="your_firebase_project_id"
-# ... diğer Firebase ayarları
-```
-
-4. **Veritabanını hazırlayın**
-```bash
-npx prisma generate
-npx prisma db push
-```
-
-5. **Geliştirme sunucusunu başlatın**
-```bash
-npm run dev
-```
-
-Uygulama [http://localhost:3000](http://localhost:3000) adresinde çalışacaktır.
-
----
-
----
-
 
 ## 🔐 Güvenlik
 
@@ -131,24 +82,6 @@ Uygulama [http://localhost:3000](http://localhost:3000) adresinde çalışacakt�
 
 ---
 
-## 📱 Mobil Uyumluluk
-
-Uygulama tam responsive tasarıma sahiptir:
-- 📱 Mobil cihazlar (360px+)
-- 📱 Tablet cihazlar (768px+)
-- 💻 Masaüstü (1024px+)
-
----
-
-## 🤝 Katkıda Bulunma
-
-1. Fork yapın
-2. Feature branch oluşturun (`git checkout -b feature/amazing-feature`)
-3. Değişikliklerinizi commit edin (`git commit -m 'feat: Add amazing feature'`)
-4. Branch'inizi push edin (`git push origin feature/amazing-feature`)
-5. Pull Request açın
-
----
 
 ## 📝 Lisans
 
