@@ -6,7 +6,7 @@
 
 Fotoğraflarınız, müziğiniz ve hikayenizle kişiselleştirilmiş, sonsuza kadar sürecek romantik dijital hediyeler oluşturun.
 
-[Demo](https://valentlink.vercel.app) • [Özellikler](#-özellikler) • [Kurulum](#-kurulum)
+[Demo](https://valentlink.vercel.app) • [Özellikler](#-özellikler) 
 
 </div>
 
