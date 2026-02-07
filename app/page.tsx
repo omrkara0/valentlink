@@ -17,7 +17,7 @@ export default function Home() {
       feature2_title: "Fotoğraf Galerisi",
       feature2_desc: "En güzel anılarınızı şık bir albümde toplayın.",
       feature3_title: "Sonsuz Link",
-      feature3_desc: "Size özel linki (valent.link/isim) WhatsApp'tan hemen paylaşın.",
+      feature3_desc: "Size özel linki (bukalpsana.com/isim) WhatsApp'tan hemen paylaşın.",
       pricing_title: "Paketini Seç",
       pricing_subtitle: "Sevgililer Gününe Özel Fiyatlar 💖",
       basic_title: "Basic",
@@ -41,7 +41,7 @@ export default function Home() {
       feature2_title: "Photo Gallery",
       feature2_desc: "Share your best memories together in a beautiful gallery.",
       feature3_title: "Forever Link",
-      feature3_desc: "Get a unique link (valent.link/name) to share instantly.",
+      feature3_desc: "Get a unique link (bukalpsana.com/name) to share instantly.",
       pricing_title: "Choose Your Tier",
       pricing_subtitle: "Special Valentine's Day Pricing 💖",
       basic_title: "Basic",
@@ -78,21 +78,31 @@ export default function Home() {
         margin: '0 auto',
         backdropFilter: 'blur(5px)'
       }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '1.5rem', fontWeight: 'bold', color: 'var(--primary)' }}>
-          <img src="/logo.jpg" alt="Logo" style={{ height: '40px', width: 'auto' }} />
-          ValentLink
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '2rem', fontFamily: 'var(--font-dynalight)', color: 'var(--primary)' }}>
+          <img src="/logo.png" alt="Logo" style={{ height: '80px', width: 'auto' }} />
+          BuKalpSana
         </div>
 
         <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
           <button onClick={() => setLang(lang === 'tr' ? 'en' : 'tr')} style={{
-            padding: '0.5rem 1rem',
-            borderRadius: '20px',
-            border: '1px solid #e5e7eb',
-            backgroundColor: 'white',
+            padding: '0.6rem 1.2rem',
+            borderRadius: '50px',
+            border: 'none',
+            backgroundColor: 'rgba(255, 240, 243, 0.8)', // Very light pink
+            color: 'var(--primary)',
             cursor: 'pointer',
-            fontSize: '0.9rem'
-          }}>
-            {lang === 'tr' ? '🇺🇸 English' : '🇹🇷 Türkçe'}
+            fontSize: '0.95rem',
+            fontWeight: '600',
+            boxShadow: '0 4px 10px rgba(225, 29, 72, 0.1)',
+            transition: 'all 0.2s ease',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.5rem'
+          }}
+            onMouseOver={(e) => e.currentTarget.style.transform = 'translateY(-1px)'}
+            onMouseOut={(e) => e.currentTarget.style.transform = 'translateY(0)'}
+          >
+            {lang === 'tr' ? '🇺🇸 EN' : '🇹🇷 TR'}
           </button>
         </div>
       </nav>
@@ -255,10 +265,10 @@ export default function Home() {
 
       {/* Footer */}
       <footer style={{ padding: '3rem 2rem', textAlign: 'center', backgroundColor: '#fff', borderTop: '1px solid #f3f4f6' }}>
-        <div style={{ fontSize: '1.2rem', fontWeight: 'bold', color: 'var(--primary)', marginBottom: '1rem' }}>ValentLink</div>
+        <div style={{ fontSize: '1.8rem', fontFamily: 'var(--font-dynalight)', color: 'var(--primary)', marginBottom: '1rem' }}>BuKalpSana</div>
         <p style={{ color: '#9ca3af', marginBottom: '1rem' }}>{t.footer_made}</p>
         <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', fontSize: '0.9rem', color: '#6b7280' }}>
-          <span>© 2026 ValentLink</span>
+          <span>© 2026 <span style={{ fontFamily: 'var(--font-dynalight)', fontSize: '1.2rem' }}>BuKalpSana</span></span>
           <span>•</span>
           <a href="#" style={{ color: '#6b7280', textDecoration: 'none' }}>{lang === 'tr' ? 'Gizlilik' : 'Privacy'}</a>
           <span>•</span>

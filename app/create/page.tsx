@@ -209,9 +209,9 @@ export default function AdminCreatePage() {
     return (
         <main style={{ minHeight: '100vh', padding: '2rem 1rem', display: 'flex', flexDirection: 'column', alignItems: 'center', background: '#fafafa' }}>
             <header style={{ marginBottom: '3rem', textAlign: 'center' }}>
-                <Link href="/" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', fontSize: '2rem', fontWeight: 'bold', color: 'var(--primary)', textDecoration: 'none', fontFamily: 'var(--font-heading)' }}>
-                    <img src="/logo.jpg" alt="Logo" style={{ height: '50px', width: 'auto' }} />
-                    ValentLink
+                <Link href="/" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', fontSize: '2.5rem', fontFamily: 'var(--font-dynalight)', color: 'var(--primary)', textDecoration: 'none' }}>
+                    <img src="/logo.png" alt="Logo" style={{ height: '100px', width: 'auto' }} />
+                    BuKalpSana
                 </Link>
                 <p style={{ color: '#888', marginTop: '0.5rem' }}>Yönetici Paneli</p>
             </header>
@@ -293,7 +293,7 @@ export default function AdminCreatePage() {
                         <div className="form-group">
                             <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: '600', color: '#666', marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Özel Link Adresi (Slug)</label>
                             <div style={{ display: 'flex', alignItems: 'center', backgroundColor: 'white', border: '1px solid #e2e8f0', borderRadius: '12px', paddingLeft: '1rem' }}>
-                                <span style={{ color: '#aaa', fontSize: '0.9rem' }}>valent.link/</span>
+                                <span style={{ color: '#aaa', fontSize: '0.9rem' }}>bukalpsana.com/</span>
                                 <input
                                     type="text"
                                     value={formData.slug}

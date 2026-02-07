@@ -12,7 +12,7 @@ export default function ContactPage() {
 
             <div className="fade-in" style={{ backgroundColor: 'white', padding: '3rem', borderRadius: '24px', boxShadow: '0 20px 40px rgba(225, 29, 72, 0.15)', maxWidth: '600px', width: '90%' }}>
                 <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem' }}>
-                    <img src="/logo.jpg" alt="ValentLink" style={{ height: '70px', width: 'auto' }} />
+                    <img src="/logo.png" alt="BuKalpSana" style={{ height: '120px', width: 'auto' }} />
                 </div>
                 <h1 style={{ fontSize: '2.5rem', marginBottom: '1rem', color: 'var(--primary)', fontFamily: 'var(--font-heading)' }}>
                     Hediye Siparişi Oluştur 💌
@@ -49,7 +49,7 @@ export default function ContactPage() {
                     <div style={{ margin: '1rem 0', color: '#aaa' }}>veya</div>
 
                     <a
-                        href="mailto:iletisim@valent.link"
+                        href="mailto:iletisim@bukalpsana.com"
                         style={{
                             padding: '1rem',
                             border: '2px solid #e5e7eb',
